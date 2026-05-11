@@ -35,5 +35,4 @@ I am sincerely grateful to **Dr. Amiya Ranjan Bhowmick** for providing me the op
 
 ## Feedback
 
-Despite my best efforts, mistakes may remain.  
-Readers are kindly encouraged to report any errors or suggestions for improvement.  
+Despite my best efforts, mistakes may remain. Readers are kindly encouraged to report any errors or suggestions for improvement.  
