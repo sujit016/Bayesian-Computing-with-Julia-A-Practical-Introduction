@@ -3,15 +3,11 @@
 using Plots, Statistics, StatsBase
 using LaTeXStrings, Distributions, Random
 using KernelDensity, SpecialFunctions
-
-
 plt = plot(layout = (2, 2), size = (800, 600))
 α = 4
 β = 1/2
 λ = range(0.1, 5, length = 50)
-
 n_vals = [10, 25, 50, 100]
-
 for (idx, n) in enumerate(n_vals) 
     mse_λ_cap = λ ./n
     mse_λB_cap = (β^2*n .*λ .+ (α*β .- λ) .^2) ./(n*β + 1)^2
@@ -24,39 +20,28 @@ display(plt)
 
 # figure 2.2
 # sampling distibution of sample mean
-
 n = 5  # sample size
 λ = 2  # true mean value
 Random.seed!(123)
 rep = 100
-
 mean_vals = zeros(rep)
-
 for i in 1:rep 
     mean_vals[i] = mean(rand(Poisson(λ), n))
 end
-
 d = kde(mean_vals)  # compute kernel density
 plot(d.x, d.density, color = "magenta", lw = 2, ls = :dash, xlabel = L"λ", 
     ylabel = "Density", label = L"f_{\bar{X}}(x)")
-
- 
 α = 18
 β = 1/3  # hyperparameters
-
 prior_density(x) =  exp(-x/β)*x^(α-1)/(β^α * gamma(α))
 plot!(prior_density, 0, 13, color = "red", lw = 3, ls = :dash, label = L"π(λ)")
-
 y = sum(rand(Poisson(λ), n))  # sufficient statistics
-
 function posterior_density(x)
     (n+1/β)^(y+α)*exp(-x*(n+1/β))*x^(y+α-1)/gamma(y+α)
 end
-
 plot!(posterior_density, color = "blue", lw = 3, ls = :dash, label = L"π(λ|y)")
 
 ##  Example - II (Normal prior for normal mean)
-
 σ = sqrt(1)  # population sd
 μ = 3  # prior mean value
 τ = sqrt(0.5)  # prior sd
@@ -78,7 +63,6 @@ plt = plot(layout = (2, 2), size = (800, 600))
 n_vals = [4, 10, 20, 30]
 σ = sqrt(1)
 τ_vals = sqrt.([0.5, 1, 2])
-
 for (idx, n) in enumerate(n_vals) 
     for i in 1:length(τ_vals)
         τ = τ_vals[i]
@@ -99,17 +83,13 @@ for (idx, n) in enumerate(n_vals)
         end
     end
 end
-
 display(plt)
 
 #  Example - III (Beta prior for Bernoulli())
-
 plt = plot(layout = (2, 3), size = (800, 600))
-
 n_vals = [4, 25, 50, 100, 200, 400]
 rep = 10^4
 p = range(0.001, 0.99, length = 25)
-
 for (idx, n) in enumerate(n_vals) 
     α = sqrt(n/4)
     β = sqrt(n/4)
@@ -152,10 +132,8 @@ y = rand(Exponential(1/λ), n)
 p_α = α + n
 p_β = (1/β) + n*mean(y)
 p_mean = p_α/p_β
-
 plt = plot(layout = (2, 2), size = (800, 600))
 M = [100, 200, 500, 1000]
-
 for (idx, m) in enumerate(M) 
     z1 = rand(Gamma(p_α, 1/p_β), m)
     histogram!(z1, normalize = true,  title = "m = $m", xlabel = L"λ", 
@@ -164,5 +142,4 @@ for (idx, m) in enumerate(M)
         subplot = idx)
     scatter!([λ], [0], color = "red", markersize = 10, label = "", subplot = idx)
 end
-
 display(plt)
