@@ -8,7 +8,6 @@ x = range(1, 5, length = 50)
 Random.seed!(123)
 y = β₀ .+ β₁ .*x .+ rand(Normal(0, ϕ), length(x))
 data = DataFrame(x = x, y = y)
-
 scatter(x, y, color = "red", xlabel = L"x", ylabel = L"y", 
     label = "")
 
