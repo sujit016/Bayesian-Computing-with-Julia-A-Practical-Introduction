@@ -1,11 +1,10 @@
 # Bayesian-Computing-with-Julia-A-Practical-Introduction
 
-##### <center>Sujit Sandipan Chaugule<sup>1</sup>, Dr. Amiya Ranjan Bhowmick<sup>2</sup></center>, <center>Dipali Vasudev Mestry<sup>2</sup>
+##### <center>Sujit Sandipan Chaugule<sup>1</sup>, Dr. Amiya Ranjan Bhowmick<sup>1</sup></center>, <center>Dipali Vasudev Mestry<sup>1</sup>
 
 <div style="text-align: justify;">
-<sup>1</sup>Department of Pharmaceutical Sciences and Technology, Institute of Chemical Technology, Mumbai
 
-<sup>2</sup>Department of Mathematics, Institute of Chemical Technology, Mumbai  
+<sup>1</sup>Department of Mathematics, Institute of Chemical Technology, Mumbai  
 </div>
 
 Bayesian statistical methods have become increasingly integral across all branches of science. With the rapid development of statistical software, Bayesian computation is now accessible to researchers in diverse domains, and these methods are widely used in both industry and academia. However, the availability of ready-made software can sometimes overshadow the fundamental principles behind Bayesian estimation.
